@@ -1,0 +1,39 @@
+{
+  "name": "tapshyrma",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Конструктор технических заданий на ИТ-системы по ГОСТ 34.602 для госорганов Кыргызской Республики",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run check:rules && npm run check:docx",
+    "check:rules": "tsx scripts/check-rules.ts",
+    "check:docx": "tsx scripts/check-docx.ts",
+    "smoke": "node scripts/smoke.mjs",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx --env-file=.env db/seed.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.44.2",
+    "next": "^15.5.0",
+    "postgres": "^3.4.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "server-only": "^0.0.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "drizzle-kit": "^0.31.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  }
+}

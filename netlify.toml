@@ -1,0 +1,17 @@
+# Развёртывание на Netlify.
+#
+# Сборку выполняет сам Netlify в облаке — Node на машине разработчика не нужен.
+# Плагин @netlify/plugin-nextjs подключается автоматически при обнаружении
+# Next.js и переносит серверные экшены и роуты в функции.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 15 требует Node 18.18+; берём актуальную LTS.
+  NODE_VERSION = "20"
+
+# Переменные DATABASE_URL и SESSION_SECRET задаются в интерфейсе Netlify
+# (Site configuration → Environment variables), а не здесь: в файле,
+# попадающем в репозиторий, секретам не место.
